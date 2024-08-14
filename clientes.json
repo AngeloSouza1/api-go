@@ -160,16 +160,6 @@
     "estado": "AL"
   },
   {
-    "id": 20,
-    "nome": "Larissa",
-    "sobrenome": "Castro",
-    "email": "larissa.castro@example.com",
-    "endereco": "Rua da Esperança, 112",
-    "telefone": "98456-3210",
-    "cidade": "Campo Grande",
-    "estado": "MS"
-  },
-  {
     "id": 21,
     "nome": "Gabriel",
     "sobrenome": "Melo",
@@ -347,16 +337,6 @@
     "endereco": "Rua das Palmeiras, 765",
     "telefone": "98123-7890",
     "cidade": "Sorocaba",
-    "estado": "SP"
-  },
-  {
-    "id": 39,
-    "nome": "André",
-    "sobrenome": "Mendes",
-    "email": "andre.mendes@example.com",
-    "endereco": "Avenida Boa Vista, 123",
-    "telefone": "97234-5678",
-    "cidade": "Jundiaí",
     "estado": "SP"
   },
   {

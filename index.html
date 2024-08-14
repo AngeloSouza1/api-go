@@ -38,39 +38,25 @@
             border-color: #2980b9;
         }
 
-        .edit-button {
-            background-color: #f39c12;
-            border-color: #e67e22;
-        }
-
-        .edit-button:hover {
-            background-color: #e67e22;
-        }
-
+        .edit-button,
         .delete-button {
-            background-color: #e74c3c;
-            border-color: #e74c3c;
+            background-color: transparent;
+            border: none;
+            color: #555;
+            padding: 0;
+            margin: 0 5px;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
         }
 
+        .edit-button:hover,
         .delete-button:hover {
-            background-color: #c0392b;
-        }
-
-        #editFormContainer {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-        }
-
-        #editFormContainer h2 {
-            margin-top: 0;
+            color: #000;
         }
 
         .table-wrapper {
-            max-height: 650px; /* Altura suficiente para 7 itens */
+            max-height: 650px;
             overflow-y: auto;
             margin-top: 20px;
             border: 1px solid #ddd;
@@ -82,7 +68,8 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             border-bottom: 1px solid #ddd;
         }
@@ -97,7 +84,26 @@
         .form-control {
             margin-bottom: 10px;
         }
+
+        .icon {
+            font-size: 1.2em;
+        }
+
+        #editFormContainer {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        #editFormContainer h2 {
+            margin-top: 0;
+        }
     </style>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -137,6 +143,7 @@
                         <label for="estado">Estado:</label>
                         <input type="text" id="estado" name="estado" class="form-control" required>
                     </div>
+                    <br>
                     <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
                 </form>
 
@@ -262,8 +269,12 @@
             estadoCell.textContent = cliente.estado;
 
             actionsCell.innerHTML = `
-                <button class="btn btn-sm edit-button" onclick="mostrarFormularioEdicao(${cliente.id})">Editar</button>
-                <button class="btn btn-sm delete-button" onclick="deletarCliente(${cliente.id})">Deletar</button>
+                <button class="btn btn-sm edit-button" onclick="mostrarFormularioEdicao(${cliente.id})">
+                    <i class="bi bi-pencil icon"></i>
+                </button>
+                <button class="btn btn-sm delete-button" onclick="deletarCliente(${cliente.id})">
+                    <i class="bi bi-trash icon"></i>
+                </button>
             `;
         }
 
