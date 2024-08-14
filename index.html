@@ -4,19 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Clientes</title>
+    <title>Gestão de Clientes</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-            padding: 20px;
+            padding-top: 70px;
         }
 
         h1 {
-            color: #333;
+            color: #fff;
             margin-bottom: 20px;
+        }
+
+        header {
+            background-color: #4a90e2; /* Cor azul suave para o fundo do header */
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1030;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.75rem;
+            text-align: center;
         }
 
         .container {
@@ -113,7 +131,7 @@
 
         /* Aumentar o comprimento da coluna "Ações" em 10% */
         .table th:nth-child(9),
-        .table td:nth-child(9) {
+        .table td:nth-child(10) {
             width: 110px;
         }
     </style>
@@ -122,8 +140,13 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Header -->
+    <header>
         <h1>Gestão de Clientes</h1>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
         <div class="row">
             <!-- Coluna Esquerda: Formulários -->
             <div class="col-md-4">
@@ -367,7 +390,7 @@
         window.onload = function() {
             fetch('http://localhost:8080/clientes')
             .then(response => response.json())
-            .then(clientes => {
+            .then(clientes => {g
                 clientes.forEach(cliente => adicionarClienteNaTabela(cliente));
             });
         };
