@@ -11,6 +11,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
+            padding: 20px;
         }
 
         h1 {
@@ -19,10 +20,10 @@
         }
 
         .container {
-            max-width: 800px;
-            margin-top: 50px;
+            max-width: 100%;
+            margin-top: 20px;
             background: white;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
@@ -91,51 +92,106 @@
 
 <body>
     <div class="container">
-        <h1>Cadastro de Clientes</h1>
+        <h1>Gestão de Clientes</h1>
+        <div class="row">
+            <!-- Coluna Esquerda: Formulários -->
+            <div class="col-md-4">
+                <!-- Formulário de Cadastro de Cliente -->
+                <form id="clienteForm">
+                    <h2>Cadastro de Cliente</h2>
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input type="text" id="sobrenome" name="sobrenome" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone" name="telefone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" name="estado" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
+                </form>
 
-        <form id="clienteForm">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" class="form-control" required>
+                <!-- Formulário de Edição de Cliente -->
+                <div id="editFormContainer">
+                    <h2>Editar Cliente</h2>
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="editNome">Nome:</label>
+                            <input type="text" id="editNome" name="editNome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editSobrenome">Sobrenome:</label>
+                            <input type="text" id="editSobrenome" name="editSobrenome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email:</label>
+                            <input type="email" id="editEmail" name="editEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEndereco">Endereço:</label>
+                            <input type="text" id="editEndereco" name="editEndereco" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTelefone">Telefone:</label>
+                            <input type="text" id="editTelefone" name="editTelefone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editCidade">Cidade:</label>
+                            <input type="text" id="editCidade" name="editCidade" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEstado">Estado:</label>
+                            <input type="text" id="editEstado" name="editEstado" class="form-control" required>
+                        </div>
+                        <input type="hidden" id="editClienteId" name="editClienteId">
+                        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                        <button type="button" class="btn btn-secondary" onclick="cancelarEdicao()">Cancelar</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
-        </form>
 
-        <div id="editFormContainer">
-            <h2>Editar Cliente</h2>
-            <form id="editForm">
-                <div class="form-group">
-                    <label for="editNome">Nome:</label>
-                    <input type="text" id="editNome" name="editNome" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="editEmail">Email:</label>
-                    <input type="email" id="editEmail" name="editEmail" class="form-control" required>
-                </div>
-                <input type="hidden" id="editClienteId" name="editClienteId">
-                <button type="submit" class="btn btn-success">Salvar Alterações</button>
-                <button type="button" class="btn btn-secondary" onclick="cancelarEdicao()">Cancelar</button>
-            </form>
+            <!-- Coluna Direita: Lista de Clientes -->
+            <div class="col-md-8">
+                <h2>Lista de Clientes</h2>
+                <table id="clientesTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>Email</th>
+                            <th>Endereço</th>
+                            <th>Telefone</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os clientes serão adicionados aqui dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <h2>Lista de Clientes</h2>
-        <table id="clientesTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Os clientes serão adicionados aqui dinamicamente -->
-            </tbody>
-        </table>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -148,14 +204,19 @@
             event.preventDefault();
             
             const nome = document.getElementById('nome').value;
+            const sobrenome = document.getElementById('sobrenome').value;
             const email = document.getElementById('email').value;
+            const endereco = document.getElementById('endereco').value;
+            const telefone = document.getElementById('telefone').value;
+            const cidade = document.getElementById('cidade').value;
+            const estado = document.getElementById('estado').value;
 
             fetch('http://localhost:8080/clientes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nome, email })
+                body: JSON.stringify({ nome, sobrenome, email, endereco, telefone, cidade, estado })
             })
             .then(response => response.json())
             .then(cliente => {
@@ -171,14 +232,22 @@
 
             const idCell = newRow.insertCell(0);
             const nomeCell = newRow.insertCell(1);
-            const emailCell = newRow.insertCell(2);
-            const actionsCell = newRow.insertCell(3);
+            const sobrenomeCell = newRow.insertCell(2);
+            const emailCell = newRow.insertCell(3);
+            const enderecoCell = newRow.insertCell(4);
+            const telefoneCell = newRow.insertCell(5);
+            const cidadeCell = newRow.insertCell(6);
+            const estadoCell = newRow.insertCell(7);
+            const actionsCell = newRow.insertCell(8);
 
             idCell.textContent = cliente.id;
             nomeCell.textContent = cliente.nome;
-            nomeCell.classList.add('nome');
+            sobrenomeCell.textContent = cliente.sobrenome;
             emailCell.textContent = cliente.email;
-            emailCell.classList.add('email');
+            enderecoCell.textContent = cliente.endereco;
+            telefoneCell.textContent = cliente.telefone;
+            cidadeCell.textContent = cliente.cidade;
+            estadoCell.textContent = cliente.estado;
 
             actionsCell.innerHTML = `
                 <button class="btn btn-sm edit-button" onclick="mostrarFormularioEdicao(${cliente.id})">Editar</button>
@@ -191,8 +260,16 @@
             .then(response => response.json())
             .then(cliente => {
                 document.getElementById('editNome').value = cliente.nome;
+                document.getElementById('editSobrenome').value = cliente.sobrenome;
                 document.getElementById('editEmail').value = cliente.email;
+                document.getElementById('editEndereco').value = cliente.endereco;
+                document.getElementById('editTelefone').value = cliente.telefone;
+                document.getElementById('editCidade').value = cliente.cidade;
+                document.getElementById('editEstado').value = cliente.estado;
                 document.getElementById('editClienteId').value = cliente.id;
+
+                // Esconder o formulário de cadastro e mostrar o formulário de edição
+                document.getElementById('clienteForm').style.display = 'none';
                 document.getElementById('editFormContainer').style.display = 'block';
             });
         }
@@ -201,7 +278,12 @@
             event.preventDefault();
 
             const nome = document.getElementById('editNome').value;
+            const sobrenome = document.getElementById('editSobrenome').value;
             const email = document.getElementById('editEmail').value;
+            const endereco = document.getElementById('editEndereco').value;
+            const telefone = document.getElementById('editTelefone').value;
+            const cidade = document.getElementById('editCidade').value;
+            const estado = document.getElementById('editEstado').value;
             const clienteId = document.getElementById('editClienteId').value;
 
             fetch(`http://localhost:8080/clientes/${clienteId}`, {
@@ -209,14 +291,22 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nome, email })
+                body: JSON.stringify({ nome, sobrenome, email, endereco, telefone, cidade, estado })
             })
             .then(response => response.json())
             .then(cliente => {
                 const row = document.getElementById(`cliente-${cliente.id}`);
-                row.querySelector('.nome').textContent = cliente.nome;
-                row.querySelector('.email').textContent = cliente.email;
+                row.querySelector('td:nth-child(2)').textContent = cliente.nome;
+                row.querySelector('td:nth-child(3)').textContent = cliente.sobrenome;
+                row.querySelector('td:nth-child(4)').textContent = cliente.email;
+                row.querySelector('td:nth-child(5)').textContent = cliente.endereco;
+                row.querySelector('td:nth-child(6)').textContent = cliente.telefone;
+                row.querySelector('td:nth-child(7)').textContent = cliente.cidade;
+                row.querySelector('td:nth-child(8)').textContent = cliente.estado;
+
+                // Voltar a mostrar o formulário de cadastro e esconder o de edição
                 document.getElementById('editFormContainer').style.display = 'none';
+                document.getElementById('clienteForm').style.display = 'block';
             });
         });
 
@@ -233,6 +323,7 @@
         function cancelarEdicao() {
             document.getElementById('editForm').reset();
             document.getElementById('editFormContainer').style.display = 'none';
+            document.getElementById('clienteForm').style.display = 'block';
         }
 
         // Carregar a lista de clientes ao carregar a página

@@ -6,15 +6,20 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"strconv"
-    "io/ioutil"
-    "os"
+	"io/ioutil"
+	"os"
 )
 
 // Cliente representa a estrutura de um cliente
 type Cliente struct {
-	ID    int    `json:"id"`
-	Nome  string `json:"nome"`
-	Email string `json:"email"`
+	ID        int    `json:"id"`
+	Nome      string `json:"nome"`
+	Sobrenome string `json:"sobrenome"`
+	Email     string `json:"email"`
+	Endereco  string `json:"endereco"`
+	Telefone  string `json:"telefone"`
+	Cidade    string `json:"cidade"`
+	Estado    string `json:"estado"`
 }
 
 var clientes []Cliente
@@ -60,13 +65,20 @@ func loadClientesFromFile() {
 func init() {
     loadClientesFromFile()
     if len(clientes) == 0 {
-        clientes = append(clientes, Cliente{ID: 1, Nome: "Usuário", Email: "user@example.com"})
+        clientes = append(clientes, Cliente{
+			ID:        1, 
+			Nome:      "Usuário", 
+			Sobrenome: "Exemplo", 
+			Email:     "user@example.com", 
+			Endereco:  "Rua Exemplo, 123",
+			Telefone:  "99999-9999",
+			Cidade:    "Cidade Exemplo",
+			Estado:    "EX",
+		})
         idCounter = 1
         saveClientesToFile()
     }
 }
-
-
 
 // Função para buscar todos os clientes
 func getClientes(w http.ResponseWriter, r *http.Request) {
@@ -156,7 +168,7 @@ func main() {
 	// Definir as rotas
 	r.HandleFunc("/clientes", getClientes).Methods("GET")
 	r.HandleFunc("/clientes", addCliente).Methods("POST")
-	r.HandleFunc("/clientes/{id}", getClientePorID).Methods("GET") // Nova rota para buscar cliente por ID
+	r.HandleFunc("/clientes/{id}", getClientePorID).Methods("GET")
 	r.HandleFunc("/clientes/{id}", updateCliente).Methods("PUT")
 	r.HandleFunc("/clientes/{id}", deleteCliente).Methods("DELETE")
 
