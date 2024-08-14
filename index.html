@@ -101,6 +101,21 @@
         #editFormContainer h2 {
             margin-top: 0;
         }
+
+        /* Reduzir a largura da coluna do formulário em 5% */
+        .col-md-4 {
+            max-width: 30%;
+        }
+
+        .col-md-8 {
+            max-width: 65%;
+        }
+
+        /* Aumentar o comprimento da coluna "Ações" em 10% */
+        .table th:nth-child(9),
+        .table td:nth-child(9) {
+            width: 110px;
+        }
     </style>
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -117,33 +132,32 @@
                     <h2>Cadastro de Cliente</h2>
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" class="form-control" required>
+                        <input type="text" id="nome" name="nome" class="form-control" required placeholder="Ex: João">
                     </div>
                     <div class="form-group">
                         <label for="sobrenome">Sobrenome:</label>
-                        <input type="text" id="sobrenome" name="sobrenome" class="form-control" required>
+                        <input type="text" id="sobrenome" name="sobrenome" class="form-control" required placeholder="Ex: Silva">
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Ex: joao.silva@example.com">
                     </div>
                     <div class="form-group">
                         <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" class="form-control" required>
+                        <input type="text" id="endereco" name="endereco" class="form-control" required placeholder="Ex: Rua das Flores, 123">
                     </div>
                     <div class="form-group">
                         <label for="telefone">Telefone:</label>
-                        <input type="text" id="telefone" name="telefone" class="form-control" required>
+                        <input type="text" id="telefone" name="telefone" class="form-control" required placeholder="Ex: 99999-9999">
                     </div>
                     <div class="form-group">
                         <label for="cidade">Cidade:</label>
-                        <input type="text" id="cidade" name="cidade" class="form-control" required>
+                        <input type="text" id="cidade" name="cidade" class="form-control" required placeholder="Ex: São Paulo">
                     </div>
                     <div class="form-group">
                         <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado" class="form-control" required>
+                        <input type="text" id="estado" name="estado" class="form-control" required placeholder="Ex: SP">
                     </div>
-                    <br>
                     <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
                 </form>
 
@@ -153,31 +167,31 @@
                     <form id="editForm">
                         <div class="form-group">
                             <label for="editNome">Nome:</label>
-                            <input type="text" id="editNome" name="editNome" class="form-control" required>
+                            <input type="text" id="editNome" name="editNome" class="form-control" required placeholder="Ex: João">
                         </div>
                         <div class="form-group">
                             <label for="editSobrenome">Sobrenome:</label>
-                            <input type="text" id="editSobrenome" name="editSobrenome" class="form-control" required>
+                            <input type="text" id="editSobrenome" name="editSobrenome" class="form-control" required placeholder="Ex: Silva">
                         </div>
                         <div class="form-group">
                             <label for="editEmail">Email:</label>
-                            <input type="email" id="editEmail" name="editEmail" class="form-control" required>
+                            <input type="email" id="editEmail" name="editEmail" class="form-control" required placeholder="Ex: joao.silva@example.com">
                         </div>
                         <div class="form-group">
                             <label for="editEndereco">Endereço:</label>
-                            <input type="text" id="editEndereco" name="editEndereco" class="form-control" required>
+                            <input type="text" id="editEndereco" name="editEndereco" class="form-control" required placeholder="Ex: Rua das Flores, 123">
                         </div>
                         <div class="form-group">
                             <label for="editTelefone">Telefone:</label>
-                            <input type="text" id="editTelefone" name="editTelefone" class="form-control" required>
+                            <input type="text" id="editTelefone" name="editTelefone" class="form-control" required placeholder="Ex: 99999-9999">
                         </div>
                         <div class="form-group">
                             <label for="editCidade">Cidade:</label>
-                            <input type="text" id="editCidade" name="editCidade" class="form-control" required>
+                            <input type="text" id="editCidade" name="editCidade" class="form-control" required placeholder="Ex: São Paulo">
                         </div>
                         <div class="form-group">
                             <label for="editEstado">Estado:</label>
-                            <input type="text" id="editEstado" name="editEstado" class="form-control" required>
+                            <input type="text" id="editEstado" name="editEstado" class="form-control" required placeholder="Ex: SP">
                         </div>
                         <input type="hidden" id="editClienteId" name="editClienteId">
                         <button type="submit" class="btn btn-success">Salvar Alterações</button>
