@@ -390,7 +390,7 @@
         window.onload = function() {
             fetch('http://localhost:8080/clientes')
             .then(response => response.json())
-            .then(clientes => {g
+            .then(clientes => {
                 clientes.forEach(cliente => adicionarClienteNaTabela(cliente));
             });
         };
