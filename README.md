@@ -52,10 +52,10 @@ O projeto é desenvolvido utilizando as seguintes tecnologias e gems:
 <br>
 🔹Video de demonstração
 
+https://github.com/user-attachments/assets/5ebbd99c-e4ba-4890-a313-6ff43097cbe3
 
 
 
-https://github.com/user-attachments/assets/761ae781-acac-41cd-8093-e250229b9638
 
 <br>
 
@@ -67,7 +67,6 @@ Pré-requisitos
  🔹 Go: Certifique-se de ter o Go instalado em sua máquina.
  
  🔹 Git: Para clonar o repositório.
-
 
 
 
