@@ -12,13 +12,19 @@ O objetivo principal desta aplicação é fornecer uma ferramenta simples e efic
 
 #### 👁️‍🗨️ Funcionalidades Principais
 
-🔹 Adicionar Cliente: Preencha o formulário com nome, sobrenome, email, endereço, telefone, cidade e estado para adicionar um novo cliente.
+🔹 Cadastro de Clientes: Preencha o formulário com nome, sobrenome, email, endereço, telefone, cidade e estado para adicionar um novo cliente.
 
-🔹 Editar Cliente: Clique no ícone de lápis ao lado de um cliente para editar suas informações.
+🔹 Edição de Clientes: Clique no ícone de lápis ao lado de um cliente para editar suas informações.
 
-🔹 Deletar Cliente: Clique no ícone de lixeira para deletar um cliente da lista.
+🔹 Exclusão de Clientes: Clique no ícone de lixeira para deletar um cliente da lista.
 
-🔹 Visualizar Clientes: Veja uma lista de todos os clientes cadastrados na tabela de clientes.
+🔹 Visualização de Clientes: Veja a lista completa de clientes cadastrados.
+
+🔹 Feedback em Tempo Real: Receba mensagens de confirmação no rodapé da página para cada operação realizada.
+
+🔹 Data e Hora: Exibição da data e hora atual no rodapé da aplicação.
+
+
 
 </div>
 
@@ -34,6 +40,10 @@ O projeto é desenvolvido utilizando as seguintes tecnologias e gems:
 
 🔹 JavaScript Fetch API: Para realizar requisições AJAX e manipular o DOM dinamicamente.
 
+🔹 HTML/CSS/JavaScript: Utilizados para a interface do usuário.
+
+🔹 JSON: Utilizado para armazenar e manipular os dados dos clientes.
+
 ---
 
 #### 💡 Veja!
@@ -47,6 +57,17 @@ O projeto é desenvolvido utilizando as seguintes tecnologias e gems:
 
 https://github.com/user-attachments/assets/761ae781-acac-41cd-8093-e250229b9638
 
+<br>
+
+### Como Rodar a Aplicação
+---
+
+Pré-requisitos
+
+ 🔹 Go: Certifique-se de ter o Go instalado em sua máquina.
+ 
+ 🔹 Git: Para clonar o repositório.
+
 
 
 
@@ -57,52 +78,49 @@ Para executar a aplicação localmente em seu ambiente de desenvolvimento, siga 
 
 🔹 Clone o repositório:
   ```bash
-git clone https://github.com/AngeloSouza1/ListEmailJR.git
-
+git clone git@github.com:AngeloSouza1/api-go.git
 ```
 🔹 Abra o diretório do projeto
 
 ```bash
-cd ListEmailJR
+cd api-go
 ```
-🔹 Instale as dependências do projeto utilizando o Bundler:
 
-  ```bash
-bundle install
-```
- 🔹 Execute as migrações do banco de dados:
-
-  ```bash
-rails db:migrate
-```
+🔹 Execute a Aplicação:
 
 ```bash
-rails db:seed
+ go run main.go
 ```
+ Acesse a Aplicação:
 
- 🔹 Inicie o servidor Rails:
-
-  ```bash
-bundle exec rails server
-```
-
- 🔹 Abra seu navegador e acesse a aplicação em http://localhost:3000.
+🔹 Abra seu navegador e vá para http://localhost:8080 para acessar a interface da aplicação.
 
 ---
 
-### 🚀 Como usar
+### 🚀 Estrutura do Projeto
 
-🔹 Após iniciar o servidor, acesse a aplicação em seu navegador.
+Api-Go
+   - main.go         
+   - clientes.json   
+   - index.html      
+   - README.md       
 
-🔹 Faça login ou crie uma nova conta para começar a utilizar a aplicação.
 
-🔹 Crie e gerencie suas listas de e-mails, adicione contatos e envie documentos conforme necessário.
+API Endpoints
 
-🔹 Certifique-se de que os documentos estão anexados corretamente antes de enviar.
+   🔹 GET /clientes: Retorna a lista de todos os clientes.
+   
+   🔹 POST /clientes: Adiciona um novo cliente.
+   
+   🔹 GET /clientes/{id}: Retorna um cliente específico pelo ID.
+   
+   🔹 PUT /clientes/{id}: Atualiza um cliente existente.
+   
+   🔹 DELETE /clientes/{id}: Remove um cliente pelo ID.
 
-🔹 Após o envio, uma mensagem "lista enviada" será exibida para confirmar o sucesso da operação.
 
 ---
+
 ###  👁️‍🗨️ Contribuição
 
 Contribuições são bem-vindas! Se você quiser contribuir para o projeto, siga estas etapas:
@@ -132,4 +150,3 @@ Este projeto é licenciado sob a MIT License.
 
 
 
-sdfasfsad
